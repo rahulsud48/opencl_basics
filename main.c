@@ -8,6 +8,7 @@ const char *kernelSource =
     "   int tid = get_global_id(0);"
     "   output[tid] = message[tid];"
     "}";
+    
 
 int main() {
     // Step 1: Get Platform and Device
