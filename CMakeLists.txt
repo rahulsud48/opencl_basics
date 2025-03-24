@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.1...3.31)
-project(FirstOpenCLApp LANGUAGES C)
+project(run LANGUAGES C)
 find_package(OpenCL REQUIRED)
 
 add_executable(${PROJECT_NAME} main.c)
