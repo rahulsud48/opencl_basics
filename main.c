@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <CL/cl.h>
 
+#define STRING_BUFFER_LEN 1024
+
 //-------------------
 // 1. Kernel Code
 //-------------------
@@ -26,6 +28,8 @@ const char* kernelSource =
 "    // Perform the addition                                \n"
 "    C[global_id] = localA[local_id] + localB[local_id];    \n"
 "}                                                          \n";
+
+
 
 int main()
 {
@@ -68,12 +72,15 @@ int main()
     //------------------------------------------------------
     // 4. Create a context and command queue
     //------------------------------------------------------
+    //This binds the context to the specified device, allowing memory allocation, kernel execution, and command queue creation.
     cl_context context = clCreateContext(NULL, 1, &device, NULL, NULL, &err);
     if (!context) {
         printf("Failed to create OpenCL context!\n");
         return -1;
     }
 
+    /*  Creates a command queue to submit tasks to the GPU/CPU/NPU. Binds the queue to the specified device inside the context.
+        Commands like memory transfer, kernel execution, and synchronization will be sent through this queue. */
     cl_command_queue queue = clCreateCommandQueue(context, device, 0, &err);
     if (!queue) {
         printf("Failed to create command queue!\n");
@@ -84,6 +91,7 @@ int main()
     //------------------------------------------------------
     // 5. Create memory buffers on the DEVICE
     //------------------------------------------------------
+    // Allocating memory for variables in the Global Memory --> VRAM
     cl_mem bufferA = clCreateBuffer(context, CL_MEM_READ_ONLY,  N * sizeof(float), NULL, &err);
     cl_mem bufferB = clCreateBuffer(context, CL_MEM_READ_ONLY,  N * sizeof(float), NULL, &err);
     cl_mem bufferC = clCreateBuffer(context, CL_MEM_WRITE_ONLY, N * sizeof(float), NULL, &err);

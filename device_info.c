@@ -11,6 +11,22 @@ const char *kernelSource =
     "   output[tid] = message[tid];"
     "}";
     
+void print_platform_details(cl_platform_id platform)
+{
+    // Get platform details
+    char platformName[1024], platformVendor[1024], platformVersion[1024];
+
+    clGetPlatformInfo(platform, CL_PLATFORM_NAME, sizeof(platformName), platformName, NULL);
+    clGetPlatformInfo(platform, CL_PLATFORM_VENDOR, sizeof(platformVendor), platformVendor, NULL);
+    clGetPlatformInfo(platform, CL_PLATFORM_VERSION, sizeof(platformVersion), platformVersion, NULL);
+
+    // Print platform details
+    printf("OpenCL Platform Details:\n");
+    printf("Name    : %s\n", platformName);
+    printf("Vendor  : %s\n", platformVendor);
+    printf("Version : %s\n", platformVersion);
+}
+
 void printDeviceInfo(cl_device_id device) {
     char buffer[STRING_BUFFER_LEN];
     cl_ulong globalMemSize;
@@ -50,6 +66,7 @@ int main() {
     clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, &device, NULL);
 
     // Print device information
+    print_platform_details(platform);
     printDeviceInfo(device);
 
     // Step 2: Create OpenCL Context and Command Queue
