@@ -197,7 +197,7 @@ int main()
 
     printf("\n######### Comparison: Device vs Host ################\n");
     are_arrays_equal(blurred_image_host, blurred_image_device, image_width * image_height * image_channels);     
-    printf("Device is %f times faster than Host \n", (total_time_sec_host/total_time_sec_device));    
+    printf("Device is %f times faster than Host \n\n\n\n", (total_time_sec_host/total_time_sec_device));    
 
     // Clean up
     clReleaseMemObject(input_buffer);

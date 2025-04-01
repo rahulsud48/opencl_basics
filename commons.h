@@ -50,15 +50,9 @@ void gaussian_blur_host(unsigned char* input, unsigned char* output, int width, 
 void are_arrays_equal(unsigned char* array1, unsigned char* array2, size_t size) {
     for (size_t i = 0; i < size; i++) {
         if (array1[i] != array2[i]) {
-            if (array1[i] != array2[i] + 1  || array1[i] != array2[i] - 1 )
-            {
 
-            }
-            else
-            {
-                printf("Array1[%ld]: %d == Array2[%ld]: %d", i, array1[i], i, array2[i]);
-                printf("The arrays are different.\n");
-            }
+            printf("Array1[%ld]: %d == Array2[%ld]: %d", i, array1[i], i, array2[i]);
+            printf("The arrays are different.\n");
         }
     }
     printf("Gaussian Blur output array matches for both Device and Host.\n");
