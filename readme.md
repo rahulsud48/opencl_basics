@@ -12,10 +12,10 @@ This repository provides fundamental examples and implementations to help unders
 
 ## Prerequisites
 To run the OpenCL programs in this repository, ensure you have the following:
-- A system with an OpenCL-compatible GPU or CPU
-- OpenCL SDK installed (e.g., Intel OpenCL SDK, AMD APP SDK, or NVIDIA CUDA Toolkit)
-- A C/C++ compiler (GCC, Clang, or MSVC)
-- CMake (optional, for build automation)
+- A system with an OpenCL-compatible GPU
+- OpenCL SDK installed for NVIDIA CUDA Toolkit
+- A C/C++ compiler - gcc
+- CMake 
 
 ## Installation
 1. Clone the repository:
