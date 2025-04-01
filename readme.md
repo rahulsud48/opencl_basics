@@ -25,40 +25,16 @@ To run the OpenCL programs in this repository, ensure you have the following:
    ```
 2. Compile the code (example using `g++`):
    ```sh
+   mkdir build
+   cd build
+   cmake ..
+   make
    g++ -o gaussian_blur gaussian_blur.cpp -lOpenCL
    ```
 3. Run the executable:
    ```sh
-   ./gaussian_blur
+   ./run
    ```
-
-## File Structure
-```
-opencl_basics/
-├── src/              # Source code for OpenCL programs
-├── include/          # Header files
-├── kernels/          # OpenCL kernel files
-├── examples/         # Example programs demonstrating OpenCL usage
-└── README.md         # Project documentation
-```
-
-## Usage
-- Modify the kernel files inside the `kernels/` directory to experiment with different parallel computing techniques.
-- Use the example programs to understand memory management and performance tuning.
-
-## Troubleshooting
-- Ensure that your GPU drivers and OpenCL SDK are correctly installed.
-- Use `clinfo` to check available OpenCL devices:
-  ```sh
-  clinfo
-  ```
-- If encountering build errors, verify that the OpenCL library path is correctly linked.
-
-## Contributing
-Contributions are welcome! Feel free to open issues or submit pull requests to improve the project.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Author
 Rahul Sud ([GitHub](https://github.com/rahulsud48))
