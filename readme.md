@@ -29,7 +29,6 @@ To run the OpenCL programs in this repository, ensure you have the following:
    cd build
    cmake ..
    make
-   g++ -o gaussian_blur gaussian_blur.cpp -lOpenCL
    ```
 3. Run the executable:
    ```sh
