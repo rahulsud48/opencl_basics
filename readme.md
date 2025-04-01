@@ -34,6 +34,35 @@ To run the OpenCL programs in this repository, ensure you have the following:
    ```sh
    ./run
    ```
+## Sample Execution Log
+```
+######### Platform Information ################
+OpenCL Platform Details:
+Name    : NVIDIA CUDA
+Vendor  : NVIDIA Corporation
+Version : OpenCL 3.0 CUDA 11.4.364
+
+######### Device Information ################
+Device Name           : OpenCL 3.0 CUDA
+Device Vendor         : OpenCL 3.0 CUDA
+Device Version        : OpenCL 3.0 CUDA
+Max Compute Units     : 68
+Global Memory Size    : 11016 MB
+Max Work Group Size   : 1024
+
+######### Device Profiling ################
+Data Write Time                                     : 0.000081 seconds
+Kernel Execution Time                               : 0.000065 seconds
+Data Read Time                                      : 0.000081 seconds
+Time taken for Gaussian blur on device              : 0.000227 seconds
+
+######### Host Profiling ################
+Time taken for Gaussian blur on host                : 0.139576 seconds
+
+######### Comparison: Device vs Host ################
+Gaussian Blur output array matches for both Device and Host.
+Device is 613.639561 times faster than Host
+```
 
 ## Author
 Rahul Sud ([GitHub](https://github.com/rahulsud48))
